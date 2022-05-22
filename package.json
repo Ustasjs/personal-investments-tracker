@@ -1,0 +1,19 @@
+{
+  "name": "personal-investments-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ustasjs/personal-investments-tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ustasjs/personal-investments-tracker/issues"
+  },
+  "homepage": "https://github.com/Ustasjs/personal-investments-tracker#readme"
+}
