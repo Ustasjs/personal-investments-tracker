@@ -6,6 +6,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import { css } from '@emotion/react';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button/Button';
+import { HBoxSbCMixin, VBoxStSMixin } from '../../mixins/flex';
 
 interface Props {
   className?: string;
@@ -16,7 +17,7 @@ export const AppLayout: React.FC<Props> = (props) => {
   const { className, children } = props;
 
   return (
-    <div className={className}>
+    <div css={wrapperCss} className={className}>
       <AppBar position="static">
         <Toolbar>
           <Link to="/">
@@ -30,9 +31,19 @@ export const AppLayout: React.FC<Props> = (props) => {
               <HomeIcon />
             </IconButton>
           </Link>
-          <Link to="/portfolio-list">
-            <Button css={buttonCss}>Портфели</Button>
-          </Link>
+          <div css={menuWrapperCss}>
+            <Link to="/portfolio-list">
+              <Button css={buttonCss}>Портфели</Button>
+            </Link>
+            <div>
+              <Link to="/login">
+                <Button css={buttonCss}>Войти</Button>
+              </Link>
+              <Link to="/sign-up">
+                <Button css={buttonCss}>Регистрация</Button>
+              </Link>
+            </div>
+          </div>
         </Toolbar>
       </AppBar>
       {children}
@@ -40,6 +51,16 @@ export const AppLayout: React.FC<Props> = (props) => {
   );
 };
 
+const wrapperCss = css`
+  ${VBoxStSMixin};
+  height: 100%;
+`;
+
 const buttonCss = css`
   color: white;
+`;
+
+const menuWrapperCss = css`
+  ${HBoxSbCMixin};
+  flex-grow: 1;
 `;

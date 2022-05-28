@@ -8,6 +8,8 @@ import { AppLayout } from './components/AppLayout/AppLayout';
 import { VBoxCSMixin } from './mixins/flex';
 import { Home } from './pages/Home/Home';
 import { PortfolioList } from './pages/PortfolioList/PortfolioList';
+import { LogIn } from './pages/LogIn/LogIn';
+import { SignUp } from './pages/SignUp/SignUp';
 
 interface Props {
   className?: string;
@@ -23,6 +25,8 @@ export const App: React.FC<Props> = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="portfolio-list" element={<PortfolioList />} />
+          <Route path="login" element={<LogIn />} />
+          <Route path="sign-up" element={<SignUp />} />
         </Routes>
       </AppLayout>
     </div>
@@ -33,10 +37,13 @@ const globalStyleCss = css`
   html,
   body {
     height: 100%;
+    min-width: 1000px;
+    min-height: 400px;
   }
 
   body {
     ${VBoxCSMixin};
+    background-color: #f4f4ed;
   }
 
   #root {
