@@ -1,26 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/** @jsxImportSource @emotion/react */
+import CssBaseline from '@mui/material/CssBaseline';
+import 'normalize.css';
+import { Route, Routes } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { css, Global } from '@emotion/react';
+import { AppLayout } from './components/AppLayout/AppLayout';
+import { VBoxCSMixin } from './mixins/flex';
+import { Home } from './pages/Home/Home';
+import { PortfolioList } from './pages/PortfolioList/PortfolioList';
+
+interface Props {
+  className?: string;
+  children?: React.ReactNode;
 }
 
-export default App;
+export const App: React.FC<Props> = () => {
+  return (
+    <div css={wrapperCss}>
+      <CssBaseline />
+      <Global styles={globalStyleCss} />
+      <AppLayout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="portfolio-list" element={<PortfolioList />} />
+        </Routes>
+      </AppLayout>
+    </div>
+  );
+};
+
+const globalStyleCss = css`
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    ${VBoxCSMixin};
+  }
+
+  #root {
+    flex-grow: 1;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+`;
+
+const wrapperCss = css`
+  height: 100%;
+`;
