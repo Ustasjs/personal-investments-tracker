@@ -4,13 +4,14 @@ import { css } from '@emotion/react';
 import Avatar from '@mui/material/Avatar/Avatar';
 import Box from '@mui/material/Box/Box';
 import Button from '@mui/material/Button/Button';
-import Link from '@mui/material/Link/Link';
+import MuiLink from '@mui/material/Link/Link';
 import TextField from '@mui/material/TextField/TextField';
 import Typography from '@mui/material/Typography/Typography';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Card from '@mui/material/Card/Card';
 import CardContent from '@mui/material/CardContent/CardContent';
 import { VBoxCCMixin } from '../../mixins/flex';
+import { Link } from 'react-router-dom';
 
 interface Props {
   className?: string;
@@ -24,7 +25,7 @@ export const LogIn: React.FC<Props> = (props) => {
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get('email'),
-      password: data.get('password'),
+      password: data.get('password'), // todo add submit
     });
   };
 
@@ -73,9 +74,9 @@ export const LogIn: React.FC<Props> = (props) => {
               >
                 Войти
               </Button>
-              <Link href="/sign-up" variant="body2">
+              <MuiLink component={Link} to="/sign-up" variant="body2">
                 {'Еще не зарегистрированы? Регистрация'}
-              </Link>
+              </MuiLink>
             </Box>
           </div>
         </CardContent>
