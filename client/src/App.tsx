@@ -10,6 +10,8 @@ import { Home } from './pages/Home/Home';
 import { PortfolioList } from './pages/PortfolioList/PortfolioList';
 import { LogIn } from './pages/LogIn/LogIn';
 import { SignUp } from './pages/SignUp/SignUp';
+import { CreatePortfolio } from './pages/CreatePortfolio/CreatePortfolio';
+import { NotFound } from './pages/NotFound/NotFound';
 
 interface Props {
   className?: string;
@@ -27,6 +29,8 @@ export const App: React.FC<Props> = () => {
           <Route path="portfolio-list" element={<PortfolioList />} />
           <Route path="login" element={<LogIn />} />
           <Route path="sign-up" element={<SignUp />} />
+          <Route path="/create-portfolio" element={<CreatePortfolio />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </AppLayout>
     </div>
@@ -43,7 +47,7 @@ const globalStyleCss = css`
 
   body {
     ${VBoxCSMixin};
-    background-color: #f4f4ed;
+    background-color: #f5f5f5;
   }
 
   #root {
